@@ -1,0 +1,94 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/system/system",
+    "pages/nav/nav",
+    "pages/mine/mine",
+    "pages/article_detail/article_detail",
+    "pages/login/login",
+    "pages/register/register",
+    "pages/info/info",
+    "pages/website/website",
+    "pages/aboutA/aboutA",
+    "pages/search/search",
+    "pages/searchList/searchList",
+    "pages/collectList/collectList"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "玩安卓",
+    "navigationBarBackgroundColor": "#DD524D"
+  },
+  "tabBar": {
+    "color": "#7a7e83",
+    "selectedColor": "#DD524D",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "static/tabbarIcon/home.png",
+        "selectedIconPath": "static/tabbarIcon/home_selected.png"
+      },
+      {
+        "pagePath": "pages/system/system",
+        "text": "体系",
+        "iconPath": "static/tabbarIcon/system.png",
+        "selectedIconPath": "static/tabbarIcon/system_selected.png"
+      },
+      {
+        "pagePath": "pages/account/account",
+        "text": "公众号",
+        "iconPath": "static/tabbarIcon/account.png",
+        "selectedIconPath": "static/tabbarIcon/account_selected.png"
+      },
+      {
+        "pagePath": "pages/project/project",
+        "text": "项目",
+        "iconPath": "static/tabbarIcon/project.png",
+        "selectedIconPath": "static/tabbarIcon/project_selected.png"
+      },
+      {
+        "pagePath": "pages/nav/nav",
+        "text": "导航",
+        "iconPath": "static/tabbarIcon/nav.png",
+        "selectedIconPath": "static/tabbarIcon/nav_selected.png"
+      }
+    ]
+  },
+  "nvue": {
+    "pages": {
+      "pages/account/account.html": {
+        "window": {
+          "usingComponents": {},
+          "navigationBarTitleText": "公众号"
+        },
+        "nvue": true
+      },
+      "pages/project/project.html": {
+        "window": {
+          "usingComponents": {},
+          "navigationBarTitleText": "项目"
+        },
+        "nvue": true
+      },
+      "pages/system_tab/system_tab.html": {
+        "window": {
+          "usingComponents": {}
+        },
+        "nvue": true
+      }
+    }
+  },
+  "nvueCompiler": "uni-app",
+  "renderer": "auto",
+  "splashscreen": {
+    "alwaysShowBeforeRender": true,
+    "autoclose": false
+  },
+  "appname": "uni_Android",
+  "compilerVersion": "2.4.2",
+  "usingComponents": {
+    "uni-load-more": "/components/uni-load-more/uni-load-more"
+  }
+}

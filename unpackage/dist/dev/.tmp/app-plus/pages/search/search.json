@@ -1,0 +1,26 @@
+{
+  "navigationBarTitleText": "搜索",
+  "titleNView": {
+    "backgroundColor": "#DD524D",
+    "searchInput": {
+      "autoFocus": true,
+      "backgroundColor": "#fefefe",
+      "borderRadius": "6px",
+      "placeholder": "请输入关键字",
+      "placeholderColor": "#999",
+      "disabled": false,
+      "align": "left"
+    },
+    "buttons": [
+      {
+        "fontSrc": "",
+        "text": "",
+        "width": "30px",
+        "fontSize": "28px",
+        "color": "transparent",
+        "background": "transparent"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

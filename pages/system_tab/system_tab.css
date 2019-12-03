@@ -1,0 +1,99 @@
+	/* #ifndef APP-PLUS */
+	page {
+	    width: 100%;
+	    min-height: 100%;
+	    display: flex;
+	}
+	/* #endif */
+	
+	.tabs {
+		flex: 1;
+		flex-direction: column;
+	}
+	.scroll-h {
+		/* background-color: #fff; */
+		padding: 0;
+		flex-direction: row;
+		width: 750rpx;
+		/* height: 80upx; */
+	}
+
+	.tab_item {
+		/* padding: 0; */
+		background-color: #fff;
+		/* line-height: 80upx; */
+		padding: 10px 10px;
+		color: #ffffff;
+	}
+
+	.uni-tab-item-title-active {
+		color: #DD524D;
+	}
+
+	.tab_txt {
+		color: #666;
+		font-size: 14px;
+	}
+
+	.border_h {
+		/* width: 100%; */
+		height: 1px;
+		background-color: #C8C7CC;
+	}
+	.topbox {
+		/* width: 750upx; */
+		height: 42px;
+		/* border-bottom-: 1px solid #eee;
+		 */
+		border-bottom-width: 1px;
+		border-bottom-style: solid;
+		border-bottom-color: #eee;
+	}
+	.botbox {
+		flex: 1;
+		background-color: #eee;
+	}
+	.swiper_box {
+		flex: 1;
+		/* height: 100%; */
+		/* background-color: #007AFF; */
+	}
+
+	.swiper_item {
+		flex: 1;
+		/* flex-direction: row; */
+	}
+
+	.footer {
+		/* flex: 1; */
+		height: 10px;
+		width: 100%;
+		background-color: #007AFF;
+	}
+	/* 下拉刷新样式 */
+	.refresh{
+		height: 60px;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+	}
+	
+	.loading-text {
+	    /* margin-left: 2px; */
+		line-height: 60px;
+	    font-size: 16px;
+	    color: #999999;
+		padding: 10px 0;
+	}
+	.loading-icon {
+		width: 20px;
+		height: 20px;
+		margin-right: 5px;
+		color: #999999;
+	}
+	.loadingtxt{
+		line-height: 40px;
+		font-size: 14px;
+		color: #aaa;
+		text-align: center;
+	}

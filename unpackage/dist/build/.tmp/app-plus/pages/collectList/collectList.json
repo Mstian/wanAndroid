@@ -1,0 +1,12 @@
+{
+  "enablePullDownRefresh": true,
+  "pullToRefresh": {
+    "support": true,
+    "color": "#DD524D"
+  },
+  "usingComponents": {
+    "uni-load-more": "/components/uni-load-more/uni-load-more",
+    "circle": "/pages/collectList/item_circle",
+    "pic": "/pages/collectList/item_pic"
+  }
+}

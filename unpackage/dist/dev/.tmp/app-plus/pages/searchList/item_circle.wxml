@@ -1,0 +1,1 @@
+<view class="circle"><view class="left"><view class="title"><rich-text nodes="{{dataItem.title}}"></rich-text></view><view class="info"><text>{{''+(dataItem.niceDate?dataItem.niceDate:'未知')+''}}</text><text>{{''+dataItem.author+''}}</text></view></view><view class="right">{{''+dataItem.superChapterName+''}}</view></view>

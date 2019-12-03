@@ -1,0 +1,21 @@
+
+.hot {
+	padding: 20px;
+}
+.title {
+	font-size: 14px;
+	color: #333;
+}
+.item {
+	padding: 2px 8px;
+	background: #F24544;
+	border-radius: 4px;
+	font-size: 14px;
+	display: inline-block;
+	color: #fff;
+	margin: 5px 5px;
+}
+.his{
+	background: #C0C0C0;
+}
+

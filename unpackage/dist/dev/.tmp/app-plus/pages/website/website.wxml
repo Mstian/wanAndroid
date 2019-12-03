@@ -1,0 +1,1 @@
+<view class="web"><block wx:for="{{webSiteList}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view class="weblist" hover-class="hover" data-event-opts="{{[['tap',[['toDetail',['$0'],[[['webSiteList','',index,'link']]]]]]]}}" bindtap="__e">{{''+item.name+''}}</view></block></view>

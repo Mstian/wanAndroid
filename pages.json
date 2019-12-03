@@ -1,0 +1,181 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/home/home",
+			"style": {
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true,
+				"app-plus": {
+					"pullToRefresh": {
+						"support": true,
+						"color": "#DD524D",
+						"offset": "70px"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/system/system",
+			"style": {
+				"navigationBarTitleText": "体系"
+			}
+		},
+		{
+			"path": "pages/account/account",
+			"style": {
+				"navigationBarTitleText": "公众号"
+			}
+		},
+		{
+			"path": "pages/project/project",
+			"style": {
+				"navigationBarTitleText": "项目"
+			}
+		},
+		{
+			"path": "pages/nav/nav",
+			"style": {
+				"navigationBarTitleText": "导航"
+			}
+		}, {
+			"path": "pages/mine/mine",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/article_detail/article_detail",
+			"style": {}
+		}, {
+			"path": "pages/login/login",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+					"softinputMode": "adjustPan"
+				}
+			}
+		}, {
+			"path": "pages/register/register",
+			"style": {
+				"navigationBarTitleText": "注册",
+				"navigationBarBackgroundColor": "#DD524D",
+				"navigationBarTextStyle": "#ffffff"
+			}
+		}, {
+			"path": "pages/system_tab/system_tab",
+			"style": {}
+		}, {
+			"path": "pages/info/info",
+			"style": {}
+		}
+	    ,{
+            "path" : "pages/website/website",
+            "style": {
+            	"navigationBarTitleText": "常用网站",
+            	"navigationBarBackgroundColor": "#DD524D",
+            	"navigationBarTextStyle": "#ffffff",
+				"enablePullDownRefresh": true,
+				"app-plus": {
+					"pullToRefresh": {
+						"support": true,
+						"color": "#DD524D"
+					}
+				}
+            }
+        }
+        ,{
+            "path" : "pages/aboutA/aboutA",
+            "style" : {
+				"navigationBarTitleText": "关于作者"
+			}
+        }
+        ,{
+            "path" : "pages/search/search",
+            "style" : {
+				"navigationBarTitleText":"搜索",
+				"app-plus":{
+					"titleNView":{
+						"backgroundColor":"#DD524D",
+						"searchInput":{
+							"autoFocus":true,
+							"backgroundColor":"#fefefe",
+							"borderRadius":"6px",
+							"placeholder":"请输入关键字",
+							"placeholderColor":"#999",
+							"disabled": false,
+							"align":"left"
+						},
+						"buttons": [{
+						    "fontSrc": "",
+						    "text": "",
+						    "width": "30px",
+						    "fontSize": "28px",
+						    "color": "transparent",
+						    "background": "transparent"
+						}]
+					}
+				}
+			}
+        }
+        ,{
+            "path" : "pages/searchList/searchList",
+            "style" : {
+				"enablePullDownRefresh": true,
+				"app-plus": {
+					"pullToRefresh": {
+						"support": true,
+						"color": "#DD524D"
+					}
+				}
+			}
+        }
+        ,{
+            "path" : "pages/collectList/collectList",
+            "style" : {
+				"enablePullDownRefresh": true,
+				"app-plus": {
+					"pullToRefresh": {
+						"support": true,
+						"color": "#DD524D"
+					}
+				}
+			}
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "#ffffff",
+		"navigationBarTitleText": "玩安卓",
+		"navigationBarBackgroundColor": "#DD524D"
+	},
+	"tabBar": {
+		"color": "#7a7e83",
+		"selectedColor": "#DD524D",
+		"backgroundColor": "#ffffff",
+		"list": [{
+			"pagePath": "pages/home/home",
+			"text": "首页",
+			"iconPath": "static/tabbarIcon/home.png",
+			"selectedIconPath": "static/tabbarIcon/home_selected.png"
+		}, {
+			"pagePath": "pages/system/system",
+			"text": "体系",
+			"iconPath": "static/tabbarIcon/system.png",
+			"selectedIconPath": "static/tabbarIcon/system_selected.png"
+		}, {
+			"pagePath": "pages/account/account",
+			"text": "公众号",
+			"iconPath": "static/tabbarIcon/account.png",
+			"selectedIconPath": "static/tabbarIcon/account_selected.png"
+		}, {
+			"pagePath": "pages/project/project",
+			"text": "项目",
+			"iconPath": "static/tabbarIcon/project.png",
+			"selectedIconPath": "static/tabbarIcon/project_selected.png"
+		}, {
+			"pagePath": "pages/nav/nav",
+			"text": "导航",
+			"iconPath": "static/tabbarIcon/nav.png",
+			"selectedIconPath": "static/tabbarIcon/nav_selected.png"
+
+		}]
+	}
+}

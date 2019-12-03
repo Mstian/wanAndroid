@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"hot { padding: 20px; }\n.",[1],"title { font-size: 14px; color: #333; }\n.",[1],"item { padding: 2px 8px; background: #F24544; border-radius: 4px; font-size: 14px; display: inline-block; color: #fff; margin: 5px 5px; }\n.",[1],"his{ background: #C0C0C0; }\n",],undefined,{path:"./pages/search/search.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/search/search.wxml') } }));

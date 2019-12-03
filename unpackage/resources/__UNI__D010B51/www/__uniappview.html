@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+    <head>
+        <meta charset="UTF-8" />
+        <script>
+            var coverSupport = 'CSS' in window && typeof CSS.supports === 'function' && (CSS.supports('top: env(a)') ||
+                CSS.supports('top: constant(a)'))
+            document.write(
+                '<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' +
+                (coverSupport ? ', viewport-fit=cover' : '') + '" />')
+        </script>
+        <title>View</title>
+        <style>
+            * {
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            input[type="search"]::-webkit-search-cancel-button {
+                display: none;
+            }
+        </style>
+        <script>
+            var __wxConfig = {"debug":false,"appname":"android","entryPagePath":"pages/home/home.html","page":{"pages/home/home.html":{"window":{"navigationStyle":"custom","enablePullDownRefresh":true,"pullToRefresh":{"support":true,"color":"#DD524D","offset":"70px"},"usingComponents":{"uni-load-more":"/components/uni-load-more/uni-load-more"}}},"pages/system/system.html":{"window":{"navigationBarTitleText":"体系","usingComponents":{}}},"pages/nav/nav.html":{"window":{"navigationBarTitleText":"导航","usingComponents":{}}},"pages/mine/mine.html":{"window":{"navigationStyle":"custom","usingComponents":{"uni-list":"/components/uni-list/uni-list","uni-list-item":"/components/uni-list-item/uni-list-item","uni-popup":"/components/uni-popup/uni-popup"}}},"pages/article_detail/article_detail.html":{"window":{"usingComponents":{}}},"pages/login/login.html":{"window":{"navigationStyle":"custom","softinputMode":"adjustPan","usingComponents":{}}},"pages/register/register.html":{"window":{"navigationBarTitleText":"注册","navigationBarBackgroundColor":"#DD524D","navigationBarTextStyle":"white","usingComponents":{}}},"pages/info/info.html":{"window":{"usingComponents":{}}},"pages/website/website.html":{"window":{"navigationBarTitleText":"常用网站","navigationBarBackgroundColor":"#DD524D","navigationBarTextStyle":"white","enablePullDownRefresh":true,"pullToRefresh":{"support":true,"color":"#DD524D"},"usingComponents":{}}},"pages/aboutA/aboutA.html":{"window":{"navigationBarTitleText":"关于作者","usingComponents":{}}},"pages/search/search.html":{"window":{"navigationBarTitleText":"搜索","titleNView":{"backgroundColor":"#DD524D","searchInput":{"autoFocus":true,"backgroundColor":"#fefefe","borderRadius":"6px","placeholder":"请输入关键字","placeholderColor":"#999","disabled":false,"align":"left"},"buttons":[{"fontSrc":"","text":"","width":"30px","fontSize":"28px","color":"transparent","background":"transparent"}]},"usingComponents":{}}},"pages/searchList/searchList.html":{"window":{"enablePullDownRefresh":true,"pullToRefresh":{"support":true,"color":"#DD524D"},"usingComponents":{"uni-load-more":"/components/uni-load-more/uni-load-more","circle":"/pages/searchList/item_circle","pic":"/pages/searchList/item_pic"}}}},"global":{"window":{"navigationBarTextStyle":"white","navigationBarTitleText":"玩安卓","navigationBarBackgroundColor":"#DD524D"}},"tabBar":{"color":"#7a7e83","selectedColor":"#DD524D","backgroundColor":"#ffffff","borderStyle":"black","list":[{"pagePath":"pages/home/home.html","text":"首页","iconPath":"static/tabbarIcon/home.png","selectedIconPath":"static/tabbarIcon/home_selected.png"},{"pagePath":"pages/system/system.html","text":"体系","iconPath":"static/tabbarIcon/system.png","selectedIconPath":"static/tabbarIcon/system_selected.png"},{"pagePath":"pages/account/account.html","text":"公众号","iconPath":"static/tabbarIcon/account.png","selectedIconPath":"static/tabbarIcon/account_selected.png"},{"pagePath":"pages/project/project.html","text":"项目","iconPath":"static/tabbarIcon/project.png","selectedIconPath":"static/tabbarIcon/project_selected.png"},{"pagePath":"pages/nav/nav.html","text":"导航","iconPath":"static/tabbarIcon/nav.png","selectedIconPath":"static/tabbarIcon/nav_selected.png"}],"position":"bottom"},"networkTimeout":{"request":60000,"connectSocket":60000,"uploadFile":60000,"downloadFile":60000},"platform":"devtools","pages":["pages/home/home","pages/system/system","pages/nav/nav","pages/mine/mine","pages/article_detail/article_detail","pages/login/login","pages/register/register","pages/info/info","pages/website/website","pages/aboutA/aboutA","pages/search/search","pages/searchList/searchList","pages/account/account","pages/project/project","pages/system_tab/system_tab","pages/account/account","pages/project/project","pages/system_tab/system_tab"],"nvue":{"pages":{"pages/account/account.html":{"window":{"usingComponents":{},"navigationBarTitleText":"公众号"},"nvue":true},"pages/project/project.html":{"window":{"usingComponents":{},"navigationBarTitleText":"项目"},"nvue":true},"pages/system_tab/system_tab.html":{"window":{"usingComponents":{}},"nvue":true}}},"nvueCompiler":"uni-app","renderer":"auto","splashscreen":{"alwaysShowBeforeRender":true,"autoclose":false},"compilerVersion":"2.4.2","usingComponents":{"uni-load-more":"/components/uni-load-more/uni-load-more"}}
+        </script>
+        <script>
+            var __id__ = '';
+            window.__dispatchGenerateFunc__ = function(page) {
+                __id__ = page;
+                document.title = page;
+                // window.history.pushState('', '', page);
+                var wxss = page.replace('.html', '.wxss')
+                if (
+                    typeof __wxAppCode__ !== 'undefined' &&
+                    __wxAppCode__.hasOwnProperty(wxss)
+                ) {
+                    var setCssToHead = __wxAppCode__[wxss]
+                    typeof setCssToHead === 'function' && setCssToHead()
+                    document.dispatchEvent(new CustomEvent("generateFuncReady", {
+                        detail: {
+                            generateFunc: $gwx(page.replace('.html', '.wxml'))
+                        }
+                    }));
+                } else {
+                    plus.webview.currentWebview().setJsFile('_www/' + page.replace('.html', '.js'));
+                }
+            };
+        </script>
+        <script src="__uniappes6.js"></script>
+        <script src="uniapp://ready"></script>
+    </head>
+
+    <body>
+        <div></div>
+    </body>
+
+</html>

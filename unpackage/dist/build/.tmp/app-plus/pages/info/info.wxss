@@ -1,0 +1,13 @@
+
+view {
+	text-align: center;
+	line-height: 35px;
+	color: #333;
+}
+.line {
+	width: 100%;
+	height: 2px;
+	background: #EEEEEE;
+	margin: 20px 0;
+}
+

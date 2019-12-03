@@ -1,0 +1,140 @@
+<template>
+	<view class="tabs">
+	
+		<view class="topbox">
+			<scroll-view class="scroll-h" :scroll-x="true" :show-scrollbar="false" :scroll-into-view="scrollInto">
+				<view class="tab_item" v-for="(item,index) in tabList" :key='index' :id='item.id' @click="changeTab(index,item.id)">
+					<text class="tab_txt" :class="tabIndex==index ? 'uni-tab-item-title-active' : ''">{{item.name}}</text>
+				</view>
+			</scroll-view>
+			<!-- <view class="border_h"></view> -->
+		</view>
+		<view class="botbox">
+			<swiper class="swiper_box" :autoplay="false" :current="tabIndex" @change="changeSwiper">
+				<swiper-item class="swiper_item" v-for="(item,index) in tabList" :key="index" :item-id='item.id'>
+					<list loadmoreoffset='15' @loadmore="loadmore(index)">
+						<refresh class="refresh" @refresh="onrefresh(index)" @pullingdown="onpullingdown" :display="refreshing ? 'show' : 'hide'">
+						  <loading-indicator class="loading-icon" animating="true" v-if="refreshing"></loading-indicator>
+						  <text class="loading-text">{{refreshText}}</text>
+						</refresh>
+						<cell v-for='(con_item,con_index) in contentList ' :key="con_index" >
+							<tabitem :dataItem = "con_item" ></tabitem>
+						</cell>
+						<cell v-if="isLoading">
+							<text class="loadingtxt">{{loadingtxt}}</text>
+						</cell>
+					</list>
+				</swiper-item>
+			</swiper>
+		</view>
+	</view>
+</template>
+
+<script>
+	import tabitem from './system_tab_item.vue'
+	export default {
+		data() {
+			return {
+				tabList: [],
+				scrollInto: '', //设置选项卡实现点击切换自动滚动到对应位置子元素id
+				tabIndex: 0,
+				contentList:[],
+				refreshing:false,
+				refreshText:'下拉可以刷新',
+				isLoading:false,
+				loadingtxt:'上拉加载更多',
+				pageSize:0,
+			}
+		},
+		methods: {
+			changeTab(index, itemId) {
+				// console.log(itemId);
+				this.pageSize = 0;
+				this.isLoading = false;
+				this.scrollInto = itemId;
+				this.tabIndex = index;
+				this.getTabContent(itemId,0);
+			},
+			changeSwiper(e) {
+				this.pageSize = 0;
+				this.isLoading = false;
+				this.tabIndex = e.detail.current;
+				this.scrollInto = e.detail.currentItemId;
+				this.getTabContent(e.detail.currentItemId,0);
+			},
+			loadmore(index){//上拉加载
+				
+				if(!this.isLoading){
+					this.isLoading = true;
+					this.loadingtxt = '加载中...';
+					this.pageSize++;
+					this.getTabContent(this.tabList[index].id,this.pageSize);
+				}
+			},
+			getTabContent(id,pageSize){
+				var _this = this;
+				uni.showLoading({
+					title: '加载中',
+				});
+				uni.request({
+					url:`https://www.wanandroid.com/article/list/${pageSize}/json?cid=${id}`,
+					data:{},
+					header: {
+						'content-Type': 'application/json'
+					},
+					success:({data})=>{
+						uni.hideLoading();
+						if(data.data.curPage>1){
+							if(data.data.curPage == data.data.pageCount){
+								_this.isLoading = true;
+								_this.loadingtxt = '暂无更多';
+							}else{
+								_this.isLoading = false;
+								_this.loadingtxt = '上拉加载更多';
+							}
+							_this.contentList =_this.contentList.concat(data.data.datas);
+						}else if(data.data.curPage == 1){
+							_this.contentList = data.data.datas;
+						}
+						this.refreshing = false;
+						this.refreshText = "已刷新";
+						// console.log(_this.contentList);
+					},
+				})
+			},
+			onrefresh(index){
+				this.pageSize = 0;
+				this.isLoading = false;
+				this.refreshing = true;
+				this.refreshText = "正在刷新...";
+				this.getTabContent(this.tabList[index].id,0)
+			},
+			onpullingdown(e){
+				if (Math.abs(e.pullingDistance) > Math.abs(e.viewHeight)) {
+				    this.refreshText = "释放立即刷新";
+				} else {
+				    this.refreshText = "下拉可以刷新";
+				}
+			}
+		},
+		onLoad(option) {
+			const tablist = JSON.parse(decodeURIComponent(option.item))
+			this.tabList = tablist.children;
+			uni.setNavigationBarTitle({
+				title:tablist.name
+			})
+			
+			this.getTabContent(this.tabList[0].id,0);
+		},
+		onReady() {
+			// this.getTabContent(60,0);
+		},
+		components:{
+			tabitem
+		}
+	}
+</script>
+
+<style>
+	@import url("./system_tab.css");
+</style>

@@ -1,0 +1,32 @@
+.wrap{
+	background: #F7F7F7;
+	/* overflow: hidden; */
+}
+.contentList{
+	background: #fff;
+	border-radius: 10px;
+	width: 90%;
+	margin: 0 auto;
+	padding: 5px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.contentList .title{
+	color: #333;
+	font-size: 16px;
+}
+.content{
+	display: flex;
+	flex-wrap: wrap;
+}
+.content text{
+	font-size: 14px;
+	color: #FFF;
+	padding: 4px 10px;
+	background: skyblue;
+	border-radius: 999rpx;
+	margin: 2px;
+}
+.media-item-hover{
+    background-color: #eee;
+}

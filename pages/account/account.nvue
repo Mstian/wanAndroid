@@ -1,0 +1,248 @@
+<template>
+	<view class="pro">
+		<view class="top">
+			<scroll-view class="scroll_top" show-scrollbar="false" scroll-with-animation="true" scroll-x="true"
+			 :scroll-into-view="scrollIntoView">
+				<view v-for="(item,index) in tabsList" :key="index" class="tabs" :id="'tabId'+index">
+					<text @click="changeTabs(index)" class="tabtxt" :class="tabIndex == index ? 'active' : ''">{{item.name}}</text>
+				</view>
+			</scroll-view>
+		</view>
+		<view class="bot">
+			<swiper class="swiper" :current="tabIndex" :indicator-dots="false" :autoplay="false" :interval="3000" :duration="1000" @change="swiperChange">
+				<swiper-item class="swiper_item" v-for="(item,index) in tabsList" :key="index">
+					<list class="list" loadmoreoffset="15" @loadmore="loadMore(index)">
+						<refresh class="refresh" @refresh="onrefresh(index)" @pullingdown="onpullingdown" :display="refreshing ? 'show' : 'hide'">
+							<loading-indicator class="loading-icon" animating="true" v-if="refreshing"></loading-indicator>
+					 		<text class="loading_txt">{{refreshTxt}}</text> 
+						</refresh>
+						<cell class="cell" v-for="(dataitem,dataindex) in contentList" :key="dataindex">
+							<listItem :dataItem="dataitem" :dataindex="dataindex"></listItem>
+						</cell>
+						<cell class="loading-more" v-if="isLoading">
+							<text class="loading-more-text">{{loadingText}}</text>
+						</cell>
+					</list>
+				</swiper-item>
+			</swiper>
+		</view>
+	</view>
+</template>
+<script>
+	import listItem from "./account_item.vue"
+	export default {
+		data() {
+			return {
+				scrollIntoView: "tabId0",
+				tabIndex: 0,
+				tabsList: [],
+				contentList: [],
+				refreshing:false,
+				refreshTxt:'下拉刷新',
+				loadingText:'上拉加载更多',
+				pageSize:0,
+				isLoading:false
+			}
+		},
+		methods: {
+			changeTabs(i) {
+				this.isLoading = false;
+				this.pageSize = 0;
+				this.tabIndex = i;
+				this.scrollIntoView = "tabId" + i;
+				this.getMainData(0,this.tabsList[i].id)
+			},
+			swiperChange(e) {
+				this.isLoading = false;
+				this.pageSize = 0;
+				this.tabIndex = e.detail.current;
+				this.scrollIntoView = "tabId" + e.detail.current;
+				this.getMainData(0,this.tabsList[e.detail.current].id)
+			},
+			onrefresh(index){//xiala 释放
+				this.pageSize = 0;
+				this.isLoading = false;
+				// console.log("onrefresh")
+				this.refreshing = true;
+				// this.contentList = [];
+				this.refreshTxt = "正在刷新...";
+				this.getMainData(0,this.tabsList[index].id);
+			},
+			onpullingdown(e){//xiala 
+				if(Math.abs(e.pullingDistance) >= Math.abs(e.viewHeight) ){
+					this.refreshTxt = '释放刷新'
+				}else{
+					this.refreshTxt = '下拉刷新'
+				}
+			},
+			loadMore(index){ //上拉加载
+				if(!this.isLoading){
+					this.isLoading = true;
+					this.loadingText = '加载中...'
+					this.pageSize++;
+					this.getMainData(this.pageSize,this.tabsList[index].id);
+				}
+				// console.log(this.pageSize)
+			},
+			getTabData() {
+				uni.showLoading({
+				})
+				var _this = this;
+				uni.request({
+					url: 'https://wanandroid.com/wxarticle/chapters/json',
+					data: {},
+					header: {
+						'content-Type': 'application/json'
+					},
+					method:'GET',
+					success: ({
+						data
+					}) => {
+						// console.log(data);
+						uni.hideLoading()
+						_this.tabsList = data.data;
+						_this.getMainData(0,_this.tabsList[0].id)
+					}
+				})
+			},
+			getMainData(pageSize, id) {
+				uni.showLoading({})
+				var _this = this;
+				// https://www.wanandroid.com/project/list/1/json?cid=294
+				uni.request({
+					url: `https://wanandroid.com/wxarticle/list/${id}/${pageSize}/json`,
+					data: {},
+					header: {
+						'content-Type': 'application/json'
+					},
+					method:"GET",
+					responseType:'text',
+					dataType: 'json',
+					responseType: 'text',
+					success: ({
+						data
+					}) => {
+						uni.hideLoading()
+						//shuxin succ
+						if(_this.refreshing == true){
+							_this.refreshing = false;
+							_this.refreshTxt = '已刷新';
+						}
+						//上拉
+						if(data.data.curPage > 0){
+							if(data.data.curPage == data.data.pageCount){
+								_this.loadingText = '暂无更多';
+								_this.isLoading = true;
+							}else{
+								_this.loadingText = '上拉加载更多'
+								_this.isLoading = false;
+							}
+							_this.contentList = _this.contentList.concat(data.data.datas);
+							
+						}else if(data.data.curPage == 0){
+							_this.contentList = data.data.datas;
+						}
+					}
+				})
+			},
+			
+		},
+		onLoad() {
+			var _this = this;
+			this.getTabData();
+			uni.$on("login",function(){
+				_this.getTabData();
+			});
+			uni.$on("logout",function(){
+				_this.getTabData();
+			})
+		},
+		onUnload() {
+			uni.$off();
+		},
+		components: {
+			listItem
+		}
+	}
+</script>
+
+<style>
+	.pro {
+		flex: 1;
+	}
+.top{
+	border-bottom-width: 1rpx;
+	border-bottom-color: #eee;
+	border-bottom-style:solid;
+}
+	.scroll_top {
+		width: 750rpx;
+		flex-direction: row;
+		padding: 10px 0px;
+
+		/* background-color: #fff; */
+	}
+
+	.tabs {
+		/* margin: 0 5px; */
+	}
+
+	.tabtxt {
+		color: #aaa;
+		font-size: 14px;
+		padding: 0 10px;
+	}
+
+	.active {
+		color: #DD524D;
+	}
+
+	.bot {
+		flex: 1;
+		
+		background-color: #eee;
+		
+		/* background-image: url(../../static/applogo.jpg); */
+	}
+
+	.swiper {
+		flex: 1;
+	}
+
+	.swiper_item {
+		flex: 1;
+	}
+
+	.cell {
+		
+	}
+	
+	.loading_txt{
+		/* margin-left: 2px; */
+		line-height: 60px;
+		font-size: 14px;
+		color: #999;
+		padding: 10px 0;
+	}
+	
+	.refresh{
+		height: 60px;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+	}
+	
+	.loading-icon {
+		width: 20px;
+		height: 20px;
+		margin-right: 5px;
+		color: #999;
+	}
+	.loading-more-text{
+		line-height: 30px;
+		font-size: 14px;
+		color: #999;
+		padding: 10px 0;
+		text-align: center;
+	}
+</style>

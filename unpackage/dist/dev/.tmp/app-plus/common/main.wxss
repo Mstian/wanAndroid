@@ -1,0 +1,126 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*每个页面公共css */
+@font-face {
+  font-family: 'iconfont';  /* project id 1447575 */
+  src: url('https://at.alicdn.com/t/font_1447575_fav8jsxiuzd.eot');
+  src: url('https://at.alicdn.com/t/font_1447575_fav8jsxiuzd.eot?#iefix') format('embedded-opentype'),
+  url('https://at.alicdn.com/t/font_1447575_fav8jsxiuzd.woff2') format('woff2'),
+  url('https://at.alicdn.com/t/font_1447575_fav8jsxiuzd.woff') format('woff'),
+  url('https://at.alicdn.com/t/font_1447575_fav8jsxiuzd.ttf') format('truetype'),
+  url('https://at.alicdn.com/t/font_1447575_fav8jsxiuzd.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-iconset0142:before {
+  content: "\E629";
+}
+.icon-daohang1:before {
+  content: "\E651";
+}
+.icon-xiangmushenbao:before {
+  content: "\E6A6";
+}
+.icon-project:before {
+  content: "\E620";
+}
+.icon-fenxiang-m:before {
+  content: "\E60E";
+}
+.icon-zhuti:before {
+  content: "\E616";
+}
+.icon-close:before {
+  content: "\E60B";
+}
+.icon-shoucang:before {
+  content: "\E659";
+}
+.icon-xiangmutixi:before {
+  content: "\E605";
+}
+.icon-gongzhonghao:before {
+  content: "\E735";
+}
+.icon-wangzhan:before {
+  content: "\E6F5";
+}
+.icon-close1:before {
+  content: "\E61C";
+}
+.icon-tuichu:before {
+  content: "\E630";
+}
+.icon-pengyouquan:before {
+  content: "\E878";
+}
+.icon-shouye:before {
+  content: "\E87B";
+}
+.icon-sousuo:before {
+  content: "\E87C";
+}
+.icon-wode:before {
+  content: "\E87D";
+}
+.icon-yanchu:before {
+  content: "\E87F";
+}
+.icon-iconzhengli_xiangmu:before {
+  content: "\E64C";
+}
+.icon-sousuo1:before {
+  content: "\E658";
+}
+.icon-shoucang1:before {
+  content: "\E640";
+}
+.icon-Forward:before {
+  content: "\E63D";
+}
+.icon-screen:before {
+  content: "\E63E";
+}
+.icon-collection:before {
+  content: "\E63F";
+}
+.bgimg{
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.text_overflow{
+	overflow: hidden;
+	-o-text-overflow:ellipsis;
+	   text-overflow:ellipsis;
+	white-space: nowrap;
+}
+page{
+	padding: 0;
+	margin: 0;
+}
+view{
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+

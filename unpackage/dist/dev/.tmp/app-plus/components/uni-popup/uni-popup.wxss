@@ -1,0 +1,113 @@
+
+@charset "UTF-8";
+.uni-popup {
+	position: fixed;
+	top: 0;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 998;
+	overflow: hidden
+}
+.uni-popup__mask {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 998;
+	background: rgba(0, 0, 0, .4);
+	opacity: 0
+}
+.uni-popup__mask.ani {
+	-webkit-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s
+}
+.uni-popup__mask.uni-bottom,
+.uni-popup__mask.uni-center,
+.uni-popup__mask.uni-top {
+	opacity: 1
+}
+.uni-popup__wrapper {
+	position: absolute;
+	z-index: 999;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box
+}
+.uni-popup__wrapper.ani {
+	-webkit-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s
+}
+.uni-popup__wrapper.top {
+	top: 0;
+	left: 0;
+	width: 100%;
+	-webkit-transform: translateY(-100%);
+	    -ms-transform: translateY(-100%);
+	        transform: translateY(-100%)
+}
+.uni-popup__wrapper.bottom {
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	-webkit-transform: translateY(100%);
+	    -ms-transform: translateY(100%);
+	        transform: translateY(100%)
+}
+.uni-popup__wrapper.center {
+	width: 100%;
+	height: 100%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-transform: scale(1.2);
+	    -ms-transform: scale(1.2);
+	        transform: scale(1.2);
+	opacity: 0
+}
+.uni-popup__wrapper-box {
+	position: relative;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box
+}
+.uni-popup__wrapper.uni-custom .uni-popup__wrapper-box {
+	padding: 30rpx;
+	background: #fff
+}
+.uni-popup__wrapper.uni-custom.center .uni-popup__wrapper-box {
+	position: relative;
+	max-width: 80%;
+	max-height: 80%;
+	overflow-y: scroll
+}
+.uni-popup__wrapper.uni-custom.bottom .uni-popup__wrapper-box,
+.uni-popup__wrapper.uni-custom.top .uni-popup__wrapper-box {
+	width: 100%;
+	max-height: 500px;
+	overflow-y: scroll
+}
+.uni-popup__wrapper.uni-bottom,
+.uni-popup__wrapper.uni-top {
+	-webkit-transform: translateY(0);
+	    -ms-transform: translateY(0);
+	        transform: translateY(0)
+}
+.uni-popup__wrapper.uni-center {
+	-webkit-transform: scale(1);
+	    -ms-transform: scale(1);
+	        transform: scale(1);
+	opacity: 1
+}
+

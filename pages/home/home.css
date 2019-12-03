@@ -1,0 +1,132 @@
+.content{
+	position: relative;
+	overflow: hidden;
+}
+.header{
+	background: #DD524D;	
+	position: fixed;
+	width: 100%;
+	z-index: 9;
+}
+.status_bar{
+	height: var(--status-bar-height);
+	width: 100%;
+}
+.header_content{
+	width: 100%;
+	height: 44px;
+	line-height: 44px;
+	text-align: center;
+	color: #fff;
+}
+.pendant{
+	width: 100%;
+	position: absolute;
+	bottom: 5px;
+	display: flex;
+	justify-content: space-between;
+	padding: 0 20px;
+}
+.pendant .avatar, .pendant .search{
+	width: 45px;
+	height: 45px;
+	/* background: #4CD964; */
+	border-radius: 50%;
+	overflow: hidden;
+}
+.pendant .search{
+	line-height: 45px;
+	text-align: center;
+	font-size: 20px;
+	color: #fff;
+}
+/* .pendant .avatar{
+	background-image: url('~@/static/applogo.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+} */
+.swiper{
+	height: 200px;
+}
+.margin_top_status{
+	height:var(--status-bar-height);
+}
+.banner{
+	/* height: 900px; */
+	margin-top: 44px;
+	position: relative;
+}
+.swiper-item{
+	height: 100%;
+}
+.tabindex{
+	position: absolute;
+	bottom: 0;
+	height: 24px;
+	background: rgba(0,0,0,0.4);
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	padding: 0 20px;
+	align-items: center;
+	color: #fff;
+	font-size: 28rpx;
+}
+.main_list{
+	height: 180rpx;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20rpx 30rpx;
+	background: #fff;
+	border-bottom: 1px solid #eee;
+}
+.main_left{
+	/* background: #fff; */
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	height: 100%;
+	font-size: 36rpx;
+	color: #000;
+}
+.main_left .text{
+	width: 540rpx;
+	color: #333;
+	font-size: 34rpx;
+}
+.main_right{
+	width: 130rpx;
+	height: 130rpx;
+	background: #DD524D;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 120rpx;
+	font-size: 24rpx;
+	color: #fff;
+	
+}
+.status{
+	display: flex;
+	justify-content:flex-start;
+	align-items: center;
+	color: #999999;
+}
+.collect_status{
+	/* color: deeppink; */
+	font-size: 16px;
+}
+.status view{
+	margin-right: 25rpx;
+}
+.status .times , .status .author{
+	font-size: 28rpx;
+}
+.collec_true{
+	color: #DD524D;
+}
+.media-item-hover{
+    background-color: #eee;
+}

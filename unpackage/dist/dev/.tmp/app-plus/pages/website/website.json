@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "常用网站",
+  "navigationBarBackgroundColor": "#DD524D",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
+  "pullToRefresh": {
+    "support": true,
+    "color": "#DD524D"
+  },
+  "usingComponents": {}
+}

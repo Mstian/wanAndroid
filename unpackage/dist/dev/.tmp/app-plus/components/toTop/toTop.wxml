@@ -1,0 +1,1 @@
+<view><view data-event-opts="{{[['tap',[['toTop',['$event']]]]]}}" class="toTop" bindtap="__e"><image src="../../static/toTop.png" mode></image></view></view>

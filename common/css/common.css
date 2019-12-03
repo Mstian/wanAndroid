@@ -1,0 +1,10 @@
+.bgimg{
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.text_overflow{
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}

@@ -1,0 +1,34 @@
+
+.web{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	padding: 20px 0;
+}
+.weblist{
+	width: 80%;
+	height: 50px;
+	background-color: #4CD964;
+	border-radius: 999rpx;
+	margin-top: 15px;
+	font-size: 36rpx;
+	color: #fff;
+	text-align: center;
+	line-height: 50px;
+	-webkit-box-shadow: 1px 1px 3px #EEEEEE;
+	        box-shadow: 1px 1px 3px #EEEEEE;
+}
+.hover{
+	opacity: 0.8;
+}
+

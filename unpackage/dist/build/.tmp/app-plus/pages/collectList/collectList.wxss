@@ -1,0 +1,18 @@
+
+.search{
+	background: #eee;
+	padding-bottom: 5px;
+}
+.wrap{
+	background: #fff;
+}
+.hover{
+	background: #eee;
+}
+.nodata{
+	color: #aaa;
+	font-size: 14px;
+	text-align: center;
+	line-height: 90px;
+}
+
