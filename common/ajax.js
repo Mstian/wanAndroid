@@ -18,6 +18,7 @@ const ajaxJs = function(url,data,method,success,fail,complete){
 				uni.hideLoading()
 				if( success && typeof (success) == "function"){
 					success(data)
+					console.log(data,'请求成功'+"--"+url);
 				}
 				
 			}else{
@@ -33,10 +34,12 @@ const ajaxJs = function(url,data,method,success,fail,complete){
 			console.log(data,'请求出错'+"--"+url);
 		},
 		complete:function(data){
+			
 			uni.hideLoading()
 			if( complete && typeof (complete) == "function"){
 				complete(data)
 			}
+			console.log(data,'complete'+"--"+url);
 		}	
 	})
 }
