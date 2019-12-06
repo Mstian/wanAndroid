@@ -37,7 +37,7 @@
 							{{item.niceDate ? item.niceDate : ''}}
 						</view>
 						<view class="author">
-							{{item.shareUser ? item.shareUser : '未知'}}
+							{{item.shareUser ? item.shareUser : item.author}}
 						</view>
 					</view>
 				</view>
@@ -81,7 +81,6 @@
 		},
 		onLoad() {
 			uni.$on("login", function() {
-				// console.log('login')
 				uni.startPullDownRefresh();
 			});
 
@@ -98,7 +97,6 @@
 		},
 		onUnload() {
 			uni.$off();
-			// console.log("unoad")
 		},
 		onPageScroll(scrollTop){
 			if(scrollTop.scrollTop >= 200){
@@ -198,7 +196,6 @@
 		onReachBottom() { //上拉
 			this.reload = false;
 			this.pageSize++;
-			// console.log(this.pageSize,'1231321321321');
 			this.getArticleData(this.pageSize);
 		}
 	};

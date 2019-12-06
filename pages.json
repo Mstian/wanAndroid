@@ -66,13 +66,12 @@
 		}, {
 			"path": "pages/info/info",
 			"style": {}
-		}
-	    ,{
-            "path" : "pages/website/website",
-            "style": {
-            	"navigationBarTitleText": "常用网站",
-            	"navigationBarBackgroundColor": "#DD524D",
-            	"navigationBarTextStyle": "#ffffff",
+		}, {
+			"path": "pages/website/website",
+			"style": {
+				"navigationBarTitleText": "常用网站",
+				"navigationBarBackgroundColor": "#DD524D",
+				"navigationBarTextStyle": "#ffffff",
 				"enablePullDownRefresh": true,
 				"app-plus": {
 					"pullToRefresh": {
@@ -80,45 +79,42 @@
 						"color": "#DD524D"
 					}
 				}
-            }
-        }
-        ,{
-            "path" : "pages/aboutA/aboutA",
-            "style" : {
+			}
+		}, {
+			"path": "pages/aboutA/aboutA",
+			"style": {
 				"navigationBarTitleText": "关于作者"
 			}
-        }
-        ,{
-            "path" : "pages/search/search",
-            "style" : {
-				"navigationBarTitleText":"搜索",
-				"app-plus":{
-					"titleNView":{
-						"backgroundColor":"#DD524D",
-						"searchInput":{
-							"autoFocus":true,
-							"backgroundColor":"#fefefe",
-							"borderRadius":"6px",
-							"placeholder":"请输入关键字",
-							"placeholderColor":"#999",
+		}, {
+			"path": "pages/search/search",
+			"style": {
+				"navigationBarTitleText": "搜索",
+				"app-plus": {
+					"titleNView": {
+						"backgroundColor": "#DD524D",
+						"searchInput": {
+							"autoFocus": true,
+							"backgroundColor": "#fefefe",
+							"borderRadius": "6px",
+							"placeholder": "请输入关键字",
+							"placeholderColor": "#999",
 							"disabled": false,
-							"align":"left"
+							"align": "left"
 						},
 						"buttons": [{
-						    "fontSrc": "",
-						    "text": "",
-						    "width": "30px",
-						    "fontSize": "28px",
-						    "color": "transparent",
-						    "background": "transparent"
+							"fontSrc": "",
+							"text": "",
+							"width": "30px",
+							"fontSize": "28px",
+							"color": "transparent",
+							"background": "transparent"
 						}]
 					}
 				}
 			}
-        }
-        ,{
-            "path" : "pages/searchList/searchList",
-            "style" : {
+		}, {
+			"path": "pages/searchList/searchList",
+			"style": {
 				"enablePullDownRefresh": true,
 				"app-plus": {
 					"pullToRefresh": {
@@ -127,10 +123,9 @@
 					}
 				}
 			}
-        }
-        ,{
-            "path" : "pages/collectList/collectList",
-            "style" : {
+		}, {
+			"path": "pages/collectList/collectList",
+			"style": {
 				"enablePullDownRefresh": true,
 				"app-plus": {
 					"pullToRefresh": {
@@ -139,8 +134,13 @@
 					}
 				}
 			}
-        }
-    ],
+		}, {
+			"path": "pages/share_article/share_article",
+			"style": {
+				"navigationBarTitleText": "分享文章"
+			}
+		}
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "#ffffff",
 		"navigationBarTitleText": "玩安卓",

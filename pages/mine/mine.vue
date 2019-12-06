@@ -12,10 +12,11 @@
 		<view class="mine_list_menu">
 			<uni-list>
 				<uni-list-item @click="baidu" title="百度一下" :show-extra-icon="false" thumb="https://ftp.bmp.ovh/imgs/2019/12/ab336722163b29d9.png" :show-arrow="false"></uni-list-item>
-			    <uni-list-item @click="toCollect()" title="我的收藏" :show-extra-icon="false" thumb="https://ae01.alicdn.com/kf/H7f039ae57da348b7a4aaa6bcc285e36fz.png" :show-arrow="false"></uni-list-item>
+			    <uni-list-item @click="toCollect('coc')" title="我的收藏" :show-extra-icon="false" thumb="https://ae01.alicdn.com/kf/H7f039ae57da348b7a4aaa6bcc285e36fz.png" :show-arrow="false"></uni-list-item>
+				<uni-list-item @click="toCollect('mat')" title="我的文章" :show-extra-icon="false" thumb="https://ftp.bmp.ovh/imgs/2019/12/7704c05ffef0cef3.png" :show-arrow="false"></uni-list-item>
+				<uni-list-item @click="toShare()" title="分享文章" :show-extra-icon="false" thumb="https://ae01.alicdn.com/kf/Hd2c4dda67b56434393429debc266b30ff.png" :show-arrow="false"></uni-list-item>
 				<uni-list-item @click="toWebsite()" title="常用网站" :show-extra-icon="false" thumb="https://ae01.alicdn.com/kf/H19bc955dce284e12823e2f6c42d674a1w.png" :show-arrow="false"></uni-list-item>
 				<uni-list-item @click="openPopup" title="主题" thumb="https://ae01.alicdn.com/kf/H907aac1ea9d4481d964fe5a50b163d3b0.png" :show-extra-icon="false" :show-arrow="false"></uni-list-item>
-				<uni-list-item @click="openPopup" title="分享" :show-extra-icon="false" thumb="https://ae01.alicdn.com/kf/Hd2c4dda67b56434393429debc266b30ff.png" :show-arrow="false"></uni-list-item>
 				<uni-list-item @click="toAbout()" title="关于作者" :show-extra-icon="false" thumb="https://ae01.alicdn.com/kf/H4364d3b89d9c436bbae3cf60dbdbdef4D.png" :show-arrow="false"></uni-list-item>
 				<uni-list-item @click="toInfo()" title="本机信息" :show-extra-icon="false" thumb="https://ftp.bmp.ovh/imgs/2019/12/a5752feb1975f1c1.png" :show-arrow="false"></uni-list-item>
 				<uni-list-item v-if="userName.length>0" @click="logout()" title="退出登录" :show-extra-icon="false" thumb="https://ae01.alicdn.com/kf/H0913a9cb156546b18e8013de06aca5efU.png" :show-arrow="false"></uni-list-item>
@@ -85,10 +86,31 @@
 				// console.log(color)
 				uni.$emit('theme',{color:color})
 			},
-			toCollect(){
+			toCollect(type){
 				if (this.$store.state.userName.length > 0) { //已登录
 					uni.navigateTo({
-						url:"../collectList/collectList"
+						url:"../collectList/collectList?type="+type
+					})
+				} else {                                    // 未登录
+					uni.showModal({
+						title: "提示",
+						content: "您还未登录，去登录查看更多功能",
+						success: function(res) {
+							if (res.confirm) {
+								uni.navigateTo({
+									url:"../login/login"
+								})
+							} else if (res.cancel) {
+								console.log('用户点击取消');
+							}
+						}
+					})
+				}
+			},
+			toShare(){
+				if (this.$store.state.userName.length > 0) { //已登录
+					uni.navigateTo({
+						url:"../share_article/share_article"
 					})
 				} else {                                    // 未登录
 					uni.showModal({

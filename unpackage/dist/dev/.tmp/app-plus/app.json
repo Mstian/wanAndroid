@@ -12,7 +12,8 @@
     "pages/aboutA/aboutA",
     "pages/search/search",
     "pages/searchList/searchList",
-    "pages/collectList/collectList"
+    "pages/collectList/collectList",
+    "pages/share_article/share_article"
   ],
   "window": {
     "navigationBarTextStyle": "white",

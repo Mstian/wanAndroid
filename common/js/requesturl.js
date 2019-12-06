@@ -18,7 +18,13 @@ export default{
 	_url_logout:baseUrl + "/user/logout/json",
 	_url_collect_list: function (pageSize){
 		return baseUrl + "/lg/collect/list/"+ pageSize +"/json"
-	} 
+	},
+	_url_user_share : function (pageSize){
+		return baseUrl + "/user/lg/private_articles/"+ pageSize +"/json"
+	},
+	_url_user_article:function(title,link){
+		return baseUrl + "/lg/user_article/add/json?title="+title + "&link="+link
+	}
 }
 
 

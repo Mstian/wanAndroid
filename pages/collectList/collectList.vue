@@ -20,6 +20,7 @@
 				// k:'',
 				pageSize:0,
 				searchList:[],
+				type:'',
 				pulldownflag:false,
 				loadingConfig:{
 					status:'more',
@@ -30,7 +31,6 @@
 		methods: {
 			getSearchList(pageSize){
 				this.$ajax(this.$urls._url_collect_list(pageSize),{},"GET",(data)=>{
-					console.log(data);
 					if(this.pulldownflag){
 						uni.stopPullDownRefresh();
 						this.pulldownflag = false;
@@ -45,6 +45,26 @@
 					}
 				})
 			},
+			getShareList(pageSize){
+				this.$ajax(this.$urls._url_user_share(pageSize),{},"GET",({data})=>{
+					// console.log(data);
+					if(this.pulldownflag){
+						uni.stopPullDownRefresh();
+						this.pulldownflag = false;
+					}
+					if(data.shareArticles.curPage == 1){
+						this.searchList = data.shareArticles.datas;
+					}else{
+						this.searchList = this.searchList.concat(data.shareArticles.datas);
+						if(data.shareArticles.datas.length == 0){
+							this.loadingConfig.status = 'noMore';
+						}
+					}
+				})
+			},
+			
+			
+			
 			toDetail(url){
 				uni.navigateTo({
 					url:"../article_detail/article_detail?url="+url
@@ -52,22 +72,33 @@
 			}
 		},
 		onLoad(option) {
-			// this.k = option.k;
-			// uni.setNavigationBarTitle({
-			// 	title:option.k
-			// });
+			this.type = option.type
+			if(option.type == 'coc'){
+				this.getSearchList(this.pageSize)	
+			}else if(option.type == 'mat'){
+				this.getShareList(this.pageSize)
+			}
 		},
 		onReady() {
-			this.getSearchList(this.pageSize)
+			
 		},
 		onPullDownRefresh(){ //下拉刷新
 			this.pageSize = 0;
 			this.pulldownflag = true;
-			this.getSearchList(this.pageSize)
+			if(this.type == 'coc'){
+				this.getSearchList(this.pageSize)
+			}else if(this.type == "mat"){
+				this.getShareList(this.pageSize)
+			}
+			
 		},
 		onReachBottom(){ //上拉加载
 			this.pageSize++;
-			this.getSearchList(this.pageSize)
+			if(this.type == 'coc'){
+				this.getSearchList(this.pageSize)
+			}else if(this.type == "mat"){
+				this.getShareList(this.pageSize)
+			}
 			this.loadingConfig.status = 'loading'
 		},
 		components:{

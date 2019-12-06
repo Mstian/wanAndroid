@@ -67,6 +67,8 @@
 	
 		},
 		onNavigationBarSearchInputConfirmed(e) { //原生导航栏软键盘搜索
+			// console.log(e)
+			// e.text
 			//本地化搜索历史
 			var _this = this;
 			uni.getStorage({

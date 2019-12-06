@@ -1,0 +1,15 @@
+
+.share{
+	padding: 20px;
+}
+.share view{
+	padding: 5px;
+	margin: 10px 0;
+}
+input{
+	border: 1px solid #eee;
+	padding: 10px;
+	font-size: 14px;
+	color: #666666;
+}
+

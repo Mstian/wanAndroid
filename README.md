@@ -1,3 +1,10 @@
+>项目源代码地址：[https://github.com/Mstian/wanAndroid](https://github.com/Mstian/wanAndroid)
+>项目博客地址：[https://www.jianshu.com/p/1557569e1b15](https://www.jianshu.com/p/1557569e1b15)
+>项目下载地址：[https://www.pgyer.com/pv0D](https://www.pgyer.com/pv0D[图片上传中...(QRCode_258.png-586294-1575623828153-0)]
+) 邀请码4566
+
+![扫一扫下载体验](https://upload-images.jianshu.io/upload_images/17538702-760730b139bd5369.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+----
 ## 1. 项目截图 
 ----
 ### 首页
@@ -101,12 +108,24 @@ vuex中我主要存了用户的一些信息，比如用户名
 >为兼容多端运行，建议使用flex布局进行开发
 
 项目的结构类似于Vue单页面应用结构，也类似于微信小程序项目结构配置，具体的请查看[uniapp官网](https://uniapp.dcloud.io/)
+## 3.  项目功能
+* 首页banner,文章列表
+* 体系列表
+* 搜索文章
+* 公众号列表
+* 项目列表
+* 导航分类
+* 个人中心
+* 注册登录
+* 收藏
+* 常用网站
+* 本机信息
 
-## 3.  项目技术分析
+## 4.  项目技术分析
 ---
 实际上项目中也没有使用到特别复杂的技术，很多东西也都是对照着官方文档去写的，遇到不会的或者自己查不出来的就去社区提提问题，Dcloud社区环境还不错，遇到很多问题可以去社区提问，官方回答也还挺活跃，并且也可以去回答别人问题，总的来说很不错吧。<br/>[点击进入社区地址](https://ask.dcloud.net.cn/explore/)
 
-#### 3.1 顶部导航栏
+#### 4.1 顶部导航栏
 顶部导航栏根据需求分为两种，一种为***原生导航栏***，一种为禁止原生导航栏从而***自定义导航栏***
 两种导航栏各有好处，官网如是说：
 >uni-app 自带原生导航栏，在pages.json里配置。
@@ -166,7 +185,7 @@ vuex中我主要存了用户的一些信息，比如用户名
 
 
 
-#### 3.2 列表渲染
+#### 4.2 列表渲染
 因为这个开源项目由于大多数都是文章列表所以列表的渲染部门比较多，我在项目中才用了两种方式，***一种就是普通的vue页面列表渲染***，另外一种就是使用***nvue组件<list>去渲染***；第一种没什么好说的，直接使用v-for遍历数据进行渲染，可以触发pages.json配置的下拉刷新、页面触底onReachBottomDistance、titleNView的transparent透明渐变等。
 部分代码如下：
 ```
@@ -233,7 +252,7 @@ toTop(){  //点击按钮调用api回到顶部
 实际上uniapp提供了丰富的插件，插件市场有很多官方人员与开发者共同开发的优质插件，如果有一些特殊需求也可以在插件市场提出，如果有人感兴趣，可以帮你开发哦。
 [点击去插件市场](https://ext.dcloud.net.cn/)
 
-#### 3.3 数据请求
+#### 4.3 数据请求
 数据请求使用uniapp自身的api，***uni.request(OBJECT)***,在此基础上做了简单的封装，有利于统一部分的实现，比如showLoading,hideLoading,还有利于自己调试。
 请求部分代码如下：
 ```
@@ -315,7 +334,7 @@ export default{
 全部暴露出去，在main.js中挂载到Vue原型上，方便调用。
 *注意：在nvue中无法访问到Vue原型上属性，因此在nvue中我是单独写的接口。*
 
-#### 3.4 其他技术应用
+#### 4.4 其他技术应用
 **webview**:在加载文章详情页的时候使用了webview组件；<br/>
 web-view 是一个 web 浏览器组件，可以用来承载网页的容器，会自动铺满整个页面。
 ```
@@ -369,30 +388,69 @@ onNavigationBarSearchInputConfirmed(e) { //原生导航栏软键盘搜索
 	});
 }
 ```
-## 4.  存在的问题
-#### 4.1 顶部选项卡问题
+## 5.  存在的问题
+#### 5.1 顶部选项卡问题
 公众号，项目，体系二级页面，都使用了顶部选项卡来完成这部分的功能，但是体验效果确实不好，有时候数据加载慢的时候已经切换到下一个选项卡，数据还没有加载过来，依然显示上一个选项卡的数据，体验很不好。
 
-#### 4.2 uniapp存在的一些问题
+#### 5.2 uniapp存在的一些问题
 不知道是不是我使用方法的问题，uni.$on()监听到事件之后有时候会不执行下面的逻辑，很奇怪这个问题查了很久，没有找到问题。
 
-#### 4.3 登录注册input框聚焦问题
+#### 5.3 登录注册input框聚焦问题
 聚焦时不能上推页面，也就是说，软键盘会遮挡input输入框，按照官方文档，设置必要的选项但是没用，我下载了hello uniapp官方体验版，也存在这个问题。
 
-#### 4.4 第一次打开App卡顿问题
+#### 5.4 第一次打开App卡顿问题
 第一次打开App,切换到公众号，项目，导航时会非常卡顿，得等很长时间才能流畅运行，第一次切换之后就好多了。收藏也是，第一次在某个列表收藏某个文章时，会明显感到很慢，之后就会好点了。
 
-#### 4.5 nvue使用问题
+#### 5.5 nvue使用问题
 nvue采用weex基于原生引擎的渲染，体验与渲染效率比较好，但是在使用过程中踩了不少坑，因为之前没有使用和研究过weex，所以连最基本的样式刚开始都写不顺，如果使用熟练了weex写起来也很方便。比如文本只能最好写在<text>组件里，而且文字与text标签不能换行排列，否则用过你就知道了哈。
 [点击到weex官网](https://weex.apache.org/zh/guide/introduction.html)
 
+#### 5.6 安装包体积比较大
+大概37M左右，还是比较大的。
+
 先写这么多，以后有想起来的需要补充的定期补充一些内容。
 
-最后真的很感谢鸿洋大神提供的开发api,与他的安卓开发社区，点击到[玩安卓社区](https://www.wanandroid.com/)
+最后真的很感谢鸿洋大神提供的开发api,与他的安卓开发社区，项目中的所有api均来自www.wanandroid.com网站纯属学习交流使用，不得用于商业用途。点击到[玩安卓社区](https://www.wanandroid.com/)
 最初看到很多人在鸿洋大神的鼓励下，去使用kotlin,flutter,reactNative，java等去开发玩安卓app,自己也很羡慕，也就诞生了自己开发的念头，但局限于自己技术原因，因为前期接触过dcloud其他产品，所以开始学习了解使用uniapp去开发了这个安卓版本的《玩安卓App》
 还要感谢uniapp官方以及该框架使用者，在开发过程中，在社区提出很多问题，有很多问题都得到了解决，并且还推荐了不少相关文档与知识。我是一名前端开发代码搬运工，等到有机会学会了reactNative 和 flutter，有机会还想使用flutter 和 reactNative再开发出自己的App。体验不同的体验。
 玩安卓社区还有很多优秀的开源的kotlin,flutter,RN等开发的各种版本的玩安卓，有兴趣的大家可以自己去体验。
 以上都是开发过程中遇到的问题和一些总结。
-欢迎大家多多交流学习。
+欢迎大家多多交流学习。转载请注明出处。
 >项目源代码地址：[https://github.com/Mstian/wanAndroid](https://github.com/Mstian/wanAndroid)
 >项目博客地址：[https://www.jianshu.com/p/1557569e1b15](https://www.jianshu.com/p/1557569e1b15)
+>项目下载地址：[https://www.pgyer.com/pv0D](https://www.pgyer.com/pv0D[图片上传中...(QRCode_258.png-586294-1575623828153-0)]
+) 邀请码4566
+
+![扫一扫下载体验](https://upload-images.jianshu.io/upload_images/17538702-760730b139bd5369.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+
+——————————————————————————————————————————
+##2019-12-6更新
+增加功能：
+1.分享文章：
+客户端支持分享文章，分享的文章可以在登录状态下我的文章列表查看。（暂无删除功能，后续会补上）；
+2.查看我分享的文章列表：
+
+![分享文章](https://upload-images.jianshu.io/upload_images/17538702-1205d669d100cd77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![我的文章查看](https://upload-images.jianshu.io/upload_images/17538702-a1309424d67fb660.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
